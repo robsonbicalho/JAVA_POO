@@ -7,18 +7,19 @@ import java.util.Calendar;
 public class Principal {
 
 	public static void main(String[] args) {
-		Pessoa pessoa = new Pessoa();
 		Data data = new Data(00, 0, 0000);
 		Scanner input = new Scanner(System.in);
 		DecimalFormat df = new DecimalFormat("0.00");
 		Calendar c = Calendar.getInstance();
 		String nomeCompletoAnterior = "";
-		int[] vetor = new int[10];
 		int pessoasCadastradas = 0;
+		Pessoa[] pessoas = new Pessoa[10];
 
-		for (int i = 0; i < vetor.length; i++) {
+		for (int i = 0; i < pessoas.length; i++) {
+			Pessoa pessoa = new Pessoa();
+			pessoas[i] = pessoa;
 			pessoasCadastradas++;
-			System.out.println("Pessoa " + (i + 1));
+			System.out.println("\n" + "Pessoa " + (i + 1));
 			System.out.println("Informe o nome: ");
 			pessoa.setNome(input.next());
 
@@ -51,18 +52,35 @@ public class Principal {
 			pessoa.setIMC(pessoa.calculaIMC());
 
 		}
-		for (int i = 0; i < (pessoasCadastradas - 1); i++) {
-			System.out.println("\n" + "Dados da pessoa " + (i + 1) + ":");
-			String nomeCompleto = pessoa.getNome() + " " + pessoa.getSobrenome();
-			String nomeRef = pessoa.getSobrenome() + ", " + pessoa.getNome().toUpperCase();
-			System.out.println("Nome completo: " + nomeCompleto);
-			System.out.println("Nome de referência: " + nomeRef);
-			System.out.println("Idade: " + pessoa.calculaIdade());
-			System.out.println("Peso: " + pessoa.getPeso());
-			System.out.println("Altura: " + pessoa.getAltura());
-			System.out.println("IMC: " + df.format(pessoa.getIMC()));
-			pessoa.InformaObesidade();
-		}
+		if (pessoasCadastradas != 10) {
+			for (int i = 0; i < (pessoasCadastradas - 1); i++) {
+				Pessoa pessoa = pessoas[i];
+				System.out.println("\n" + "Dados da pessoa " + (i + 1) + ":");
+				String nomeCompleto = pessoa.getNome() + " " + pessoa.getSobrenome();
+				String nomeRef = pessoa.getSobrenome() + ", " + pessoa.getNome().toUpperCase();
+				System.out.println("Nome completo: " + nomeCompleto);
+				System.out.println("Nome de referência: " + nomeRef);
+				System.out.println("Idade: " + pessoa.calculaIdade());
+				System.out.println("Peso: " + pessoa.getPeso());
+				System.out.println("Altura: " + pessoa.getAltura());
+				System.out.println("IMC: " + df.format(pessoa.getIMC()));
+				pessoa.InformaObesidade();
+			}
+		} else {
+			for (int i = 0; i < pessoas.length; i++) {
+				Pessoa pessoa = pessoas[i];
+				System.out.println("\n" + "Dados da pessoa " + (i + 1) + ":");
+				String nomeCompleto = pessoa.getNome() + " " + pessoa.getSobrenome();
+				String nomeRef = pessoa.getSobrenome() + ", " + pessoa.getNome().toUpperCase();
+				System.out.println("Nome completo: " + nomeCompleto);
+				System.out.println("Nome de referência: " + nomeRef);
+				System.out.println("Idade: " + pessoa.calculaIdade());
+				System.out.println("Peso: " + pessoa.getPeso());
+				System.out.println("Altura: " + pessoa.getAltura());
+				System.out.println("IMC: " + df.format(pessoa.getIMC()));
+				pessoa.InformaObesidade();
+			}
 
+		}
 	}
 }
