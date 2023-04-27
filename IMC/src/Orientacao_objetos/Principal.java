@@ -28,7 +28,7 @@ public class Principal {
 			String nomeCompletoAtual = (pessoa.getNome() + pessoa.getSobrenome());
 
 			if (nomeCompletoAtual.equalsIgnoreCase(nomeCompletoAnterior)) {
-				System.out.println("Nome já cadastrado. O programa será encerrado.");
+				System.out.println("Nome jÃ¡ cadastrado. O programa serÃ¡ encerrado.");
 				break;
 			}
 			nomeCompletoAnterior = nomeCompletoAtual;
@@ -46,10 +46,11 @@ public class Principal {
 			data.setMes(Integer.parseInt(dataSplit[1]));
 			data.setAno(Integer.parseInt(dataSplit[2]));
 			c.set(Calendar.YEAR, data.getAno());
-			c.set(Calendar.MONTH, data.getMes());
+			c.set(Calendar.MONTH, data.getMes()-1);
 			c.set(Calendar.DAY_OF_MONTH, data.getDia());
 			pessoa.setDataNascimento(c);
 			pessoa.setIMC(pessoa.calculaIMC());
+			pessoa.setidadeAtual(pessoa.calculaIdade());
 
 		}
 		if (pessoasCadastradas != 10) {
@@ -59,8 +60,8 @@ public class Principal {
 				String nomeCompleto = pessoa.getNome() + " " + pessoa.getSobrenome();
 				String nomeRef = pessoa.getSobrenome() + ", " + pessoa.getNome().toUpperCase();
 				System.out.println("Nome completo: " + nomeCompleto);
-				System.out.println("Nome de referência: " + nomeRef);
-				System.out.println("Idade: " + pessoa.calculaIdade());
+				System.out.println("Nome de referÃªncia: " + nomeRef);
+				System.out.println("Idade: " + pessoa.getidadeAtual());
 				System.out.println("Peso: " + pessoa.getPeso());
 				System.out.println("Altura: " + pessoa.getAltura());
 				System.out.println("IMC: " + df.format(pessoa.getIMC()));
@@ -73,8 +74,8 @@ public class Principal {
 				String nomeCompleto = pessoa.getNome() + " " + pessoa.getSobrenome();
 				String nomeRef = pessoa.getSobrenome() + ", " + pessoa.getNome().toUpperCase();
 				System.out.println("Nome completo: " + nomeCompleto);
-				System.out.println("Nome de referência: " + nomeRef);
-				System.out.println("Idade: " + pessoa.calculaIdade());
+				System.out.println("Nome de referÃªncia: " + nomeRef);
+				System.out.println("Idade: " + pessoa.getidadeAtual());
 				System.out.println("Peso: " + pessoa.getPeso());
 				System.out.println("Altura: " + pessoa.getAltura());
 				System.out.println("IMC: " + df.format(pessoa.getIMC()));
