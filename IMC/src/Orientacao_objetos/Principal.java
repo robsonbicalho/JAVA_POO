@@ -16,28 +16,27 @@ public class Principal {
 		Pessoa[] pessoas = new Pessoa[10];
 
 		for (int i = 0; i < pessoas.length; i++) {
-			Pessoa pessoa = new Pessoa();
-			pessoas[i] = pessoa;
+			pessoas[i] = new Pessoa();
 			pessoasCadastradas++;
 			System.out.println("\n" + "Pessoa " + (i + 1));
 			System.out.println("Informe o nome: ");
-			pessoa.setNome(input.next());
+			pessoas[i].setNome(input.next());
 
 			System.out.println("Informe o sobrenome: ");
-			pessoa.setSobrenome(input.next());
-			String nomeCompletoAtual = (pessoa.getNome() + pessoa.getSobrenome());
+			pessoas[i].setSobrenome(input.next());
+			String nomeCompletoAtual = (pessoas[i].getNome() + pessoas[i].getSobrenome());
 
 			if (nomeCompletoAtual.equalsIgnoreCase(nomeCompletoAnterior)) {
-				System.out.println("Nome já cadastrado. O programa será encerrado.");
+				System.out.println("Nome jÃ¡ cadastrado. O programa serÃ¡ encerrado.");
 				break;
 			}
 			nomeCompletoAnterior = nomeCompletoAtual;
 
 			System.out.println("Informe a altura: ");
-			pessoa.setAltura(input.nextDouble());
+			pessoas[i].setAltura(input.nextDouble());
 
 			System.out.println("Informe o peso: ");
-			pessoa.setPeso(input.nextDouble());
+			pessoas[i].setPeso(input.nextDouble());
 
 			System.out.print("Digite a data de nascimento no formato dd/MM/yyyy: ");
 			String datadigitada = input.next();
@@ -46,10 +45,11 @@ public class Principal {
 			data.setMes(Integer.parseInt(dataSplit[1]));
 			data.setAno(Integer.parseInt(dataSplit[2]));
 			c.set(Calendar.YEAR, data.getAno());
-			c.set(Calendar.MONTH, data.getMes());
+			c.set(Calendar.MONTH, data.getMes()-1);
 			c.set(Calendar.DAY_OF_MONTH, data.getDia());
-			pessoa.setDataNascimento(c);
-			pessoa.setIMC(pessoa.calculaIMC());
+			pessoas[i].setDataNascimento(c);
+			pessoas[i].setIMC(pessoas[i].calculaIMC());
+			pessoas[i].setidadeAtual(pessoas[i].calculaIdade());
 
 		}
 		if (pessoasCadastradas != 10) {
@@ -59,8 +59,8 @@ public class Principal {
 				String nomeCompleto = pessoa.getNome() + " " + pessoa.getSobrenome();
 				String nomeRef = pessoa.getSobrenome() + ", " + pessoa.getNome().toUpperCase();
 				System.out.println("Nome completo: " + nomeCompleto);
-				System.out.println("Nome de referência: " + nomeRef);
-				System.out.println("Idade: " + pessoa.calculaIdade());
+				System.out.println("Nome de referÃªncia: " + nomeRef);
+				System.out.println("Idade: " + pessoa.getidadeAtual());
 				System.out.println("Peso: " + pessoa.getPeso());
 				System.out.println("Altura: " + pessoa.getAltura());
 				System.out.println("IMC: " + df.format(pessoa.getIMC()));
@@ -73,8 +73,8 @@ public class Principal {
 				String nomeCompleto = pessoa.getNome() + " " + pessoa.getSobrenome();
 				String nomeRef = pessoa.getSobrenome() + ", " + pessoa.getNome().toUpperCase();
 				System.out.println("Nome completo: " + nomeCompleto);
-				System.out.println("Nome de referência: " + nomeRef);
-				System.out.println("Idade: " + pessoa.calculaIdade());
+				System.out.println("Nome de referÃªncia: " + nomeRef);
+				System.out.println("Idade: " + pessoa.getidadeAtual());
 				System.out.println("Peso: " + pessoa.getPeso());
 				System.out.println("Altura: " + pessoa.getAltura());
 				System.out.println("IMC: " + df.format(pessoa.getIMC()));
