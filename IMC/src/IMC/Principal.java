@@ -1,4 +1,4 @@
-package Orientacao_objetos;
+package IMC;
 
 import java.util.Scanner;
 import java.text.DecimalFormat;
@@ -59,11 +59,11 @@ public class Principal {
 				String nomeCompleto = pessoa.getNome() + " " + pessoa.getSobrenome();
 				String nomeRef = pessoa.getSobrenome() + ", " + pessoa.getNome().toUpperCase();
 				System.out.println("Nome completo: " + nomeCompleto);
-<<<<<<< Updated upstream
+
 				System.out.println("Nome de referÃªncia: " + nomeRef);
-=======
+
 				System.out.println("Nome de referência: " + nomeRef);
->>>>>>> Stashed changes
+
 				System.out.println("Idade: " + pessoa.getidadeAtual());
 				System.out.println("Peso: " + pessoa.getPeso());
 				System.out.println("Altura: " + pessoa.getAltura());
@@ -77,11 +77,11 @@ public class Principal {
 				String nomeCompleto = pessoa.getNome() + " " + pessoa.getSobrenome();
 				String nomeRef = pessoa.getSobrenome() + ", " + pessoa.getNome().toUpperCase();
 				System.out.println("Nome completo: " + nomeCompleto);
-<<<<<<< Updated upstream
+
 				System.out.println("Nome de referÃªncia: " + nomeRef);
-=======
+
 				System.out.println("Nome de referência: " + nomeRef);
->>>>>>> Stashed changes
+
 				System.out.println("Idade: " + pessoa.getidadeAtual());
 				System.out.println("Peso: " + pessoa.getPeso());
 				System.out.println("Altura: " + pessoa.getAltura());

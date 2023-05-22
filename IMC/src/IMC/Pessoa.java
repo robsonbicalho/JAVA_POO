@@ -1,4 +1,4 @@
-package Orientacao_objetos;
+package IMC;
 
 import java.util.Calendar;
 
@@ -63,14 +63,6 @@ public class Pessoa {
 	public void setidadeAtual(double idadeAtual) {
 		this.idadeAtual = idadeAtual;
 	}
-	public double getidadeAtual() {
-		return idadeAtual;
-	}
-
-	public void setidadeAtual(double idadeAtual) {
-		this.idadeAtual = idadeAtual;
-	}
-
 	public double getidadeAtual() {
 		return idadeAtual;
 	}

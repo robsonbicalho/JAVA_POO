@@ -1,4 +1,4 @@
-package Orientacao_objetos;
+package IMC;
 
 public class Data {
     private int dia;
