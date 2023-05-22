@@ -53,13 +53,17 @@ public class Principal {
 
 		}
 		if (pessoasCadastradas != 10) {
-			for (int i = 0; i < (pessoasCadastradas - 1); i++) {
+			for (int i = 0; i < (pessoasCadastradas); i++) {
 				Pessoa pessoa = pessoas[i];
 				System.out.println("\n" + "Dados da pessoa " + (i + 1) + ":");
 				String nomeCompleto = pessoa.getNome() + " " + pessoa.getSobrenome();
 				String nomeRef = pessoa.getSobrenome() + ", " + pessoa.getNome().toUpperCase();
 				System.out.println("Nome completo: " + nomeCompleto);
+<<<<<<< Updated upstream
 				System.out.println("Nome de referÃªncia: " + nomeRef);
+=======
+				System.out.println("Nome de referência: " + nomeRef);
+>>>>>>> Stashed changes
 				System.out.println("Idade: " + pessoa.getidadeAtual());
 				System.out.println("Peso: " + pessoa.getPeso());
 				System.out.println("Altura: " + pessoa.getAltura());
@@ -67,13 +71,17 @@ public class Principal {
 				pessoa.InformaObesidade();
 			}
 		} else {
-			for (int i = 0; i < pessoas.length; i++) {
+			for (int i = 0; i == pessoas.length; i++) {
 				Pessoa pessoa = pessoas[i];
 				System.out.println("\n" + "Dados da pessoa " + (i + 1) + ":");
 				String nomeCompleto = pessoa.getNome() + " " + pessoa.getSobrenome();
 				String nomeRef = pessoa.getSobrenome() + ", " + pessoa.getNome().toUpperCase();
 				System.out.println("Nome completo: " + nomeCompleto);
+<<<<<<< Updated upstream
 				System.out.println("Nome de referÃªncia: " + nomeRef);
+=======
+				System.out.println("Nome de referência: " + nomeRef);
+>>>>>>> Stashed changes
 				System.out.println("Idade: " + pessoa.getidadeAtual());
 				System.out.println("Peso: " + pessoa.getPeso());
 				System.out.println("Altura: " + pessoa.getAltura());

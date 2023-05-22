@@ -3,7 +3,7 @@ package Orientacao_objetos;
 import java.util.Calendar;
 
 public class Pessoa {
-	
+
 	private String nome;
 	private String sobrenome;
 	private int idade;
@@ -67,6 +67,14 @@ public class Pessoa {
 		return idadeAtual;
 	}
 
+	public void setidadeAtual(double idadeAtual) {
+		this.idadeAtual = idadeAtual;
+	}
+
+	public double getidadeAtual() {
+		return idadeAtual;
+	}
+
 	public void setDataNascimento(Calendar dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
@@ -84,14 +92,13 @@ public class Pessoa {
 		int anoAtual = dataAtual.get(Calendar.YEAR);
 		int mesAtual = dataAtual.get(Calendar.MONTH) + 1;
 		int diaAtual = dataAtual.get(Calendar.DAY_OF_MONTH);
-		
+
 		int idade = anoAtual - dataNascimento.get(Calendar.YEAR);
 		if (mesAtual < dataNascimento.get(Calendar.MONTH) || (mesAtual == dataNascimento.get(Calendar.MONTH) && diaAtual < dataNascimento.get(Calendar.DAY_OF_MONTH))) {
 			idade--;
 		}
-		return idade;	
+		return idade;
 	}
-	
 
 	public void InformaObesidade() {
 		IMC = calculaIMC();
