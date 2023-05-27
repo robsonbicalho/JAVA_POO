@@ -1,7 +1,6 @@
 package Sistema_barbearia;
 
 import java.util.List;
-
 import java.util.Scanner;
 
 public class Main {
@@ -9,10 +8,9 @@ public class Main {
 	public static void main(String[] args) {
 		GestaoClientes gestor = new GestaoClientes();
 		Scanner input = new Scanner(System.in);
-
 		int opção = 0;
 		int contador = 1;
-
+	
 		while (opção != 5) {
 			System.out.println("Menu:");
 			System.out.println("1 - Cadastrar cliente");
@@ -28,13 +26,21 @@ public class Main {
 				System.out.print("Informe o nome do cliente: ");
 				input.nextLine(); // Limpa o buffer do scanner apos o input.nextint
 				String nome = input.nextLine();
-
 				System.out.print("Informe o endereço do cliente: ");
 				String endereco = input.nextLine();
 				System.out.print("Informe o telefone do cliente: ");
-				String telefone = input.nextLine();
+				String telefone = input.next();
+				System.out.println("Informe o sexo do cliente (F ou M): ");
+				String sexo = input.nextLine();
+				while (!sexo.equalsIgnoreCase("F") && !sexo.equalsIgnoreCase("M")) {
+					sexo = input.nextLine();
+
+					if (!sexo.equalsIgnoreCase("F") && !sexo.equalsIgnoreCase("M")) {
+						System.out.println("Sexo inválido! Informe apenas F ou M.");
+					}
+				}
 				int codigo = contador;
-				Cliente novoCliente = new Cliente(codigo, nome, telefone, endereco);
+				Cliente novoCliente = new Cliente(codigo, nome, sexo, telefone, endereco);
 				gestor.cadastrarCliente(novoCliente);
 				contador++;
 				break;
@@ -47,7 +53,8 @@ public class Main {
 				System.out.println("1 - Nome");
 				System.out.println("2 - Endereço");
 				System.out.println("3 - Telefone");
-				System.out.println("4 - Voltar ao menu");
+				System.out.println("4 - Sexo");
+				System.out.println("5 - Voltar ao menu");
 				System.out.print("Selecione uma opção: ");
 				int opcao2 = input.nextInt();
 
@@ -55,23 +62,33 @@ public class Main {
 				case 1:
 					System.out.print("Informe o novo nome do cliente: ");
 					String novoNome = input.next();
-					gestor.editarCliente(codigoEditar, novoNome, clienteEditar.getEndereco(), clienteEditar.getTelefone());
+					gestor.editarCliente(codigoEditar, clienteEditar.getSexo(), novoNome, clienteEditar.getEndereco(),
+							clienteEditar.getTelefone());
 					break;
 
 				case 2:
 					System.out.print("Informe o novo endereço do cliente: ");
 					String novoEndereco = input.next();
-					gestor.editarCliente(codigoEditar, clienteEditar.getNome(), novoEndereco, clienteEditar.getTelefone());
+					gestor.editarCliente(codigoEditar, clienteEditar.getNome(), clienteEditar.getSexo(), novoEndereco,
+							clienteEditar.getTelefone());
 					break;
 
 				case 3:
 					System.out.print("Informe o novo telefone do cliente: ");
 					String novoTelefone = input.next();
-					gestor.editarCliente(codigoEditar, clienteEditar.getNome(), clienteEditar.getEndereco(), novoTelefone);
+					gestor.editarCliente(codigoEditar, clienteEditar.getNome(), clienteEditar.getSexo(), clienteEditar.getEndereco(),
+							novoTelefone);
+					break;
+				case 4:
+					System.out.print("Informe o novo sexo do cliente: ");
+					String novoSexo = input.next();
+					gestor.editarCliente(codigoEditar, clienteEditar.getNome(), novoSexo, clienteEditar.getEndereco(),
+							clienteEditar.getTelefone());
 					break;
 				default:
 					System.out.println("Opção inválida. Voltando ao menu...");
 					break;
+					
 				}
 				break;
 			case 3:
@@ -87,6 +104,7 @@ public class Main {
 				for (Cliente cliente : clientes) {
 					System.out.println("Codigo: " + cliente.getCodigo());
 					System.out.println("Nome: " + cliente.getNome());
+					System.out.println("Sexo: " + cliente.getSexo());
 					System.out.println("Endereço: " + cliente.getEndereco());
 					System.out.println("Telefone: " + cliente.getTelefone());
 					System.out.println("-------------------------------");

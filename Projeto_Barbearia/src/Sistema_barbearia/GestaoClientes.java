@@ -15,11 +15,12 @@ public class GestaoClientes {
 		System.out.println("Cliente cadastrado com sucesso!");
 	}
 
-	public void editarCliente(int codigo, String novoNome, String novoEndereco, String novoTelefone) {
+	public void editarCliente(int codigo, String novoNome, String novoSexo, String novoEndereco, String novoTelefone) {
 		Cliente clienteEditar = buscarCodigo(codigo);
 
 		if (clienteEditar != null) {
 			clienteEditar.setNome(novoNome);
+			clienteEditar.setSexo(novoSexo);
 			clienteEditar.setEndereco(novoEndereco);
 			clienteEditar.setTelefone(novoTelefone);
 			System.out.println("Cliente editado com sucesso!");

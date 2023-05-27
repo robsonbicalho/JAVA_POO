@@ -7,9 +7,11 @@ public class Cliente {
 	private String endereco;
 	private String telefone;
 	private int codigo;
+	private String sexo;
 
-	public Cliente(int codigo, String nome, String telefone, String endereco) {
+	public Cliente(int codigo, String nome, String sexo, String telefone, String endereco) {
 		this.nome = nome;
+		this.sexo = sexo;
 		this.telefone = telefone;
 		this.endereco = endereco;
 		this.codigo = codigo;
@@ -45,6 +47,13 @@ public class Cliente {
 
 	public void setCodigo(int codigo) {
 		this.codigo = codigo;
+	}
+	public String getSexo() {
+		return sexo;
+	}
+
+	public void setSexo(String sexo) {
+		this.sexo = sexo;
 	}
 
 }
