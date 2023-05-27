@@ -30,17 +30,17 @@ public class Main {
 				String endereco = input.nextLine();
 				System.out.print("Informe o telefone do cliente: ");
 				String telefone = input.next();
-				System.out.println("Informe o sexo do cliente (F ou M): ");
-				String sexo = input.nextLine();
-				while (!sexo.equalsIgnoreCase("F") && !sexo.equalsIgnoreCase("M")) {
-					sexo = input.nextLine();
+				System.out.println("Informe a classe do cliente (R ou M): ");
+				String especialidade = input.nextLine();
+				while (!especialidade.equalsIgnoreCase("R") && !especialidade.equalsIgnoreCase("M")) {
+					especialidade = input.nextLine();
 
-					if (!sexo.equalsIgnoreCase("F") && !sexo.equalsIgnoreCase("M")) {
-						System.out.println("Sexo inválido! Informe apenas F ou M.");
+					if (!especialidade.equalsIgnoreCase("R") && !especialidade.equalsIgnoreCase("M")) {
+						System.out.println("Classe inválida! Informe apenas R ou M.");
 					}
 				}
 				int codigo = contador;
-				Cliente novoCliente = new Cliente(codigo, nome, sexo, telefone, endereco);
+				Cliente novoCliente = new Cliente(codigo, nome, especialidade, telefone, endereco);
 				gestor.cadastrarCliente(novoCliente);
 				contador++;
 				break;
@@ -53,7 +53,7 @@ public class Main {
 				System.out.println("1 - Nome");
 				System.out.println("2 - Endereço");
 				System.out.println("3 - Telefone");
-				System.out.println("4 - Sexo");
+				System.out.println("4 - Classe");
 				System.out.println("5 - Voltar ao menu");
 				System.out.print("Selecione uma opção: ");
 				int opcao2 = input.nextInt();
@@ -62,21 +62,21 @@ public class Main {
 				case 1:
 					System.out.print("Informe o novo nome do cliente: ");
 					String novoNome = input.next();
-					gestor.editarCliente(codigoEditar, clienteEditar.getSexo(), novoNome, clienteEditar.getEndereco(),
+					gestor.editarCliente(codigoEditar, clienteEditar.getEspecialidade(), novoNome, clienteEditar.getEndereco(),
 							clienteEditar.getTelefone());
 					break;
 
 				case 2:
 					System.out.print("Informe o novo endereço do cliente: ");
 					String novoEndereco = input.next();
-					gestor.editarCliente(codigoEditar, clienteEditar.getNome(), clienteEditar.getSexo(), novoEndereco,
+					gestor.editarCliente(codigoEditar, clienteEditar.getNome(), clienteEditar.getEspecialidade(), novoEndereco,
 							clienteEditar.getTelefone());
 					break;
 
 				case 3:
 					System.out.print("Informe o novo telefone do cliente: ");
 					String novoTelefone = input.next();
-					gestor.editarCliente(codigoEditar, clienteEditar.getNome(), clienteEditar.getSexo(), clienteEditar.getEndereco(),
+					gestor.editarCliente(codigoEditar, clienteEditar.getNome(), clienteEditar.getEspecialidade(), clienteEditar.getEndereco(),
 							novoTelefone);
 					break;
 				case 4:
@@ -104,7 +104,7 @@ public class Main {
 				for (Cliente cliente : clientes) {
 					System.out.println("Codigo: " + cliente.getCodigo());
 					System.out.println("Nome: " + cliente.getNome());
-					System.out.println("Sexo: " + cliente.getSexo());
+					System.out.println("Classe: " + cliente.getEspecialidade());
 					System.out.println("Endereço: " + cliente.getEndereco());
 					System.out.println("Telefone: " + cliente.getTelefone());
 					System.out.println("-------------------------------");
