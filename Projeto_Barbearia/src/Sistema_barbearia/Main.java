@@ -53,12 +53,18 @@ public class Main {
 							System.out.println("Classe inválida! Informe apenas R ou M.");
 						}
 					}
-
+			
 					int codigo = contador;
+					if (especialidade.equals("M")) {
+						 ClienteMensal novoClienteMensal = new ClienteMensal(codigo, nome, especialidade, telefone, endereco);
+						 break;
+					 }
+					else {
 					Cliente novoCliente = new Cliente(codigo, nome, especialidade, telefone, endereco);
 					gc.cadastrarCliente(novoCliente);
 					contador++;
 					break;
+					}
 
 				case 2:
 					System.out.print("Informe o código do cliente a ser editado: ");
