@@ -5,6 +5,7 @@ import java.util.List;
 
 public class GestaoClientes {
 	private List<Cliente> clientes;
+	private List<ClienteMensal> clientesMensais;
 
 	public GestaoClientes() {
 		this.clientes = new ArrayList<>();
@@ -12,6 +13,10 @@ public class GestaoClientes {
 
 	public void cadastrarCliente(Cliente cliente) {
 		clientes.add(cliente);
+		System.out.println("Cliente cadastrado com sucesso!");
+	}
+	public void cadastrarClienteMensal(ClienteMensal clienteMensal) {
+		clientesMensais.add(clienteMensal);
 		System.out.println("Cliente cadastrado com sucesso!");
 	}
 

@@ -57,6 +57,7 @@ public class Main {
 						if (especialidade.equals("M")) {
 							ClienteMensal novoClienteMensal = new ClienteMensal(codigo, nome, especialidade, telefone,
 									endereco);
+							gc.cadastrarClienteMensal(novoClienteMensal);
 						}
 
 						Cliente novoCliente = new Cliente(codigo, nome, especialidade, telefone, endereco);
